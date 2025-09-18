@@ -1,4 +1,6 @@
 # Ignore unnecessary files
+yes
+yes.pub
 *.pem
 *.pub
 *.key
