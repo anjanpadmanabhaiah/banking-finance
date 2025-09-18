@@ -9,5 +9,4 @@ yes
 yes.pub
 .git
 .gitignore
-target/
 tests/
