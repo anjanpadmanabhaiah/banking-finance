@@ -1,0 +1,21 @@
+- name: Deploy Banking App
+  hosts: all
+  become: yes
+  tasks:
+    - name: Ensure Docker is installed
+      apt:
+        name: docker.io
+        state: present
+        update_cache: yes
+
+    - name: Stop old container
+      shell: docker stop banking-app || true
+      ignore_errors: yes
+
+    - name: Remove old container
+      shell: docker rm banking-app || true
+      ignore_errors: yes
+
+    - name: Run new banking container
+      shell: docker run -d -p 8085:8085 --name banking-app anjan8055/banking:latest
+

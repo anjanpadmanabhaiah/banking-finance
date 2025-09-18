@@ -1,0 +1,15 @@
+- hosts: test
+  become: true
+  tasks:
+    - name: Stop old container if running
+      shell: docker stop banking || true
+
+    - name: Remove old container
+      shell: docker rm banking || true
+
+    - name: Pull latest image
+      command: docker pull anjan8055/banking:latest
+
+    - name: Run container
+      command: docker run -d -p 8080:8080 --name banking anjan8055/banking:latest
+
