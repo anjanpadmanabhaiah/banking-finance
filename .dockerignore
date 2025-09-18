@@ -1,0 +1,11 @@
+# Ignore unnecessary files
+*.pem
+*.pub
+*.key
+*.txt
+yes
+yes.pub
+.git
+.gitignore
+target/
+tests/
