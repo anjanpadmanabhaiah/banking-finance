@@ -16,6 +16,12 @@
       shell: docker rm banking-app || true
       ignore_errors: yes
 
+    - name: Remove any container using port 8085
+      shell: |
+        docker ps -q --filter "publish=8085" | xargs -r docker stop
+        docker ps -aq --filter "publish=8085" | xargs -r docker rm
+      ignore_errors: yes
+
     - name: Run new banking container
-      shell: docker run -d -p 8085:8085 --name banking-app anjan8055/banking:latest
+      shell: docker run -d -p 8085:8081 --name banking-app anjan8055/banking:latest
 
