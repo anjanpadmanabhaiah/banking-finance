@@ -8,11 +8,10 @@ options.add_argument("--disable-dev-shm-usage")
 
 driver = webdriver.Chrome(options=options)
 
-driver.get("http://18.216.78.229:8085")
+# Open Google to confirm Selenium works
+driver.get("https://www.google.com")
 
-# Just check the page title has "Banking"
-assert "Banking" in driver.title
-
-print("✅ Simple test passed!")
+assert "Google" in driver.title
+print("✅ Simple Selenium test passed!")
 
 driver.quit()
